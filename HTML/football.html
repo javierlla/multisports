@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
-    <header>
+    -<header>
         <nav>
-            <ul>
+            <ul class="nav-left">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="basketball.html">Basket</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="basketball.html">Basketball</a></li>
                 <li><a href="football.html">Football</a></li>
-                <li><a href="Nfl.html">American footbal</a></li>
+                <li><a href="Nfl.html">American Football</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="main-football">
         <section id="epl-teams">
             <h2>Equipos de la EPL</h2>
             <div id="teams-epl"></div>
@@ -28,8 +30,58 @@
         </section>
     </main>
     <footer>
-
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Our History</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Mission</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: info@multisport.com</li>
+                    <li>Phone: +34 942543672</li>
+                    <li>Address: Sardinero Street</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 All rights reserved
+        </div>
     </footer>
     <script type="module" src="../JS/football.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            const sectionTitles = document.querySelectorAll('#epl-teams h2, #epl-players h2');
+            
+            sectionTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    this.classList.toggle('collapsed');
+                    
+                    const content = this.nextElementSibling;
+                    if (this.classList.contains('collapsed')) {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'grid';
+                    }
+                });
+                
+                title.classList.add('collapsed');
+                title.nextElementSibling.style.display = 'none';
+            });
+        });
+        </script>
 </body>
 </html>

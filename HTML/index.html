@@ -7,25 +7,106 @@
     <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
-    <header>
+    -<header>
         <nav>
-            <ul>
+            <ul class="nav-left">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="basketball.html">Basket</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="basketball.html">Basketball</a></li>
                 <li><a href="football.html">Football</a></li>
-                <li><a href="Nfl.html">American footbal</a></li>
+                <li><a href="Nfl.html">American Football</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section id="intro">
-            <img src="https://img.freepik.com/foto-gratis/herramientas-deportivas_53876-138077.jpg" alt="Imagen Deportiva" id="main-image">
-            <p>Esta es una aplicación que proporciona información sobre los equipos y jugadores de diferentes deportes, como baloncesto, fútbol y fútbol americano.</p>
+    <main class="main-index">
+        <section id="secvid">
+            <video autoplay muted loop id="vid">
+                <source src="../untitled.mp4" type="video/mp4">
+                Your browser does not support the video format.
+            </video>
+            <div class="hero-content">
+                <h1>MultiSports Pro</h1>
+                <p class="parraf">The ultimate sports statistics platform</p>
+            </div>
         </section>
+    
+        <section id="featured-sports">
+            <h2>Our Sports</h2>
+            <div class="sports-grid">
+                <a href="basketball.html" class="sport-card">
+                    <div class="sport-icon">🏀</div>
+                    <h3>NBA Basketball</h3>
+                    <p>Teams, players, and complete statistics</p>
+                </a>
+                <a href="football.html" class="sport-card">
+                    <div class="sport-icon">⚽</div>
+                    <h3>Football</h3>
+                    <p>Rankings and tactical analysis</p>
+                </a>
+                <a href="Nfl.html" class="sport-card">
+                    <div class="sport-icon">🏈</div>
+                    <h3>American Football</h3>
+                    <p>Results and upcoming NFL matches</p>
+                </a>
+            </div>
+        </section>
+
+<!--         <section id="stats-highlights">
+            <h2>Featured Statistics</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value" id="teams-count">120+</div>
+                    <div class="stat-label">Teams</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="players-count">2,500+</div>
+                    <div class="stat-label">Players</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="matches-count">380+</div>
+                    <div class="stat-label">Matches</div>
+                </div>
+            </div>
+        </section> -->
     </main>
     <footer>
-
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Our History</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Mission</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: info@multisport.com</li>
+                    <li>Phone: +34 942543672</li>
+                    <li>Address: Sardinero Street</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 All rights reserved
+        </div>
     </footer>
     <script type="module" src="../JS/script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
