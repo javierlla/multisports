@@ -33,6 +33,6 @@ Para que la aplicación funcione correctamente, necesitarás:
 1. Obtener una API Key gratuita registrándote en:
    [https://www.balldontlie.io](https://www.balldontlie.io)
 
-2. Crear un archivo `config.js` en la raíz del proyecto con:
+2. En el archivo `api.js` en en inicio pega lo siguiente:
    ```javascript
    const API_KEY = 'tu_api_key_aquí';

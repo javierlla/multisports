@@ -1,11 +1,15 @@
-
 import { classTeamsNfl, classPlayersNfl, classTeamsEpl, classPlayersEpl, classTeamsNba, classPlayersNba } from "./class.js";
 
+/* 
+-------------------------------------------------
+Pegar aquí la APIKEY 
+-------------------------------------------------
+*/
 
 async function teamsEpl() {
     try {
         const URLJson = await fetch("https://api.balldontlie.io/epl/v1/teams?season=2024", {
-            headers: { "Authorization": "3ca153f6-b17e-4e7c-aa06-da8e42c5bd27" }
+            headers: { "Authorization": API_KEY }
         });
         const UrlApi = await URLJson.json();
         return (UrlApi); 
@@ -18,7 +22,7 @@ async function teamsEpl() {
 async function playersEpl() {
     try {
         const URLJson = await fetch("https://api.balldontlie.io/epl/v1/players?season=2024", {
-            headers: { "Authorization": "3ca153f6-b17e-4e7c-aa06-da8e42c5bd27" }
+            headers: { "Authorization": API_KEY }
         });
         const UrlApi = await URLJson.json();
         return(UrlApi);
@@ -30,7 +34,7 @@ async function playersEpl() {
 async function fetchTeamsNba() {
     try {
         const URLJson = await fetch("https://api.balldontlie.io/v1/teams?season=2024?", {
-            headers: { "Authorization": "3ca153f6-b17e-4e7c-aa06-da8e42c5bd27" }
+            headers: { "Authorization": API_KEY }
         });
         const UrlApi = await URLJson.json();
         return UrlApi;
@@ -43,7 +47,7 @@ async function fetchTeamsNba() {
 async function playersNba() {
     try {
         const URLJson = await fetch("https://api.balldontlie.io/v1/players?season=2024?", {
-            headers: { "Authorization": "3ca153f6-b17e-4e7c-aa06-da8e42c5bd27" }
+            headers: { "Authorization": API_KEY }
         });
         const UrlApi = await URLJson.json();
         return(UrlApi);
@@ -55,7 +59,7 @@ async function playersNba() {
 async function teamsNfl() {
     try {
         const URLJson = await fetch("https://api.balldontlie.io/nfl/v1/teams", {
-            headers: { "Authorization": "3ca153f6-b17e-4e7c-aa06-da8e42c5bd27" }
+            headers: { "Authorization": API_KEY}
         });
         const UrlApi = await URLJson.json();
         return UrlApi;
@@ -67,7 +71,7 @@ async function teamsNfl() {
 async function playersNfl() {
     try {
         const URLJson = await fetch("https://api.balldontlie.io/nfl/v1/players", {
-            headers: { "Authorization": "3ca153f6-b17e-4e7c-aa06-da8e42c5bd27" }
+            headers: { "Authorization": API_KEY }
         });
         const UrlApi = await URLJson.json();
         return UrlApi; 
