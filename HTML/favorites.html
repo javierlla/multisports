@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MultiSports</title>
-    <link rel="stylesheet" href="../CSS/styles.css">
+    <title>Mis Favoritos</title>
+    <link rel="stylesheet" href="../CSS/styles.css"> 
 </head>
 <body>
-    -<header>
+    <header>
         <nav>
             <ul class="nav-left">
                 <li><a href="index.html">Home</a></li>
@@ -20,37 +20,11 @@
             </ul>
         </nav>
     </header>
-    <main class="main-index">
-        <section id="secvid">
-            <video autoplay muted loop id="vid">
-                <source src="../untitled.mp4" type="video/mp4">
-                Your browser does not support the video format.
-            </video>
-            <div class="hero-content">
-                <h1>MultiSports Pro</h1>
-                <p class="parraf">The ultimate sports statistics platform</p>
-            </div>
-        </section>
     
-        <section id="featured-sports">
-            <h2>Our Sports</h2>
-            <div class="sports-grid">
-                <a href="basketball.html" class="sport-card">
-                    <div class="sport-icon">🏀</div>
-                    <h3>NBA Basketball</h3>
-                    <p>Teams, players, and complete statistics</p>
-                </a>
-                <a href="football.html" class="sport-card">
-                    <div class="sport-icon">⚽</div>
-                    <h3>Football</h3>
-                    <p>Rankings and tactical analysis</p>
-                </a>
-                <a href="Nfl.html" class="sport-card">
-                    <div class="sport-icon">🏈</div>
-                    <h3>American Football</h3>
-                    <p>Results and upcoming NFL matches</p>
-                </a>
-            </div>
+    <main class="main-favorites">
+        <section id="favorites-section">
+            <h2>All my favorites</h2>
+            <div id="favorites-container"></div>
         </section>
     </main>
     <footer>
@@ -84,12 +58,6 @@
             &copy; 2023 All rights reserved
         </div>
     </footer>
-    <script type="module" src="../JS/script.js"></script>
+    <script type="module" src="../JS/favorites.js"></script> 
 </body>
 </html>
-
-
-
-
-
-

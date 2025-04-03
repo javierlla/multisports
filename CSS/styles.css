@@ -1,42 +1,55 @@
 
-/* ------------------------------------------------------
----------------------------------------------------------
-                    HEADER
- --------------------------------------------------------
- -------------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #2c3e50;
+}
 
- header {
+/* Header */
+header {
     background: #333;
-    padding: 20px; 
+    padding: 15px 20px;
+    position: relative;
+    z-index: 100;
+}
+
+header h1 {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.8rem;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
+    gap: 15px;
 }
 
 .nav-left, .nav-right {
     display: flex;
-    align-items: center;
-}
-
-.nav-left {
-    margin-right: auto;
-}
-
-.nav-right {
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    align-items: center;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 nav ul li {
@@ -45,28 +58,59 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 5px 10px;
-    transition: 0.3s;
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px 12px;
+    transition: all 0.3s;
+    display: inline-block;
+    border-radius: 5px;
+    white-space: nowrap;
 }
 
 nav ul li a:hover {
     background: #555;
-    border-radius: 5px;
 }
 
+/* Main Content - Estilos compartidos */
+.main-basket,
+.main-nfl,
+.main-football,
+.main-favorites {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    flex: 1;
+    padding: 20px 0;
+    position: relative;
+}
 
-/* ------------------------------------------------------
----------------------------------------------------------
-                    FOOTER 
- --------------------------------------------------------
- -------------------------------------------------------- */
- footer {
+.sports-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.sports-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+/* Footer */
+footer {
     background: #333;
-    color: white;
+    color: #fff;
     padding: 30px 0;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 .footer-content {
@@ -106,7 +150,7 @@ nav ul li a:hover {
 }
 
 .footer-column ul li a:hover {
-    color: white;
+    color: #fff;
 }
 
 .footer-bottom {
@@ -118,19 +162,137 @@ nav ul li a:hover {
     color: #aaa;
 }
 
-
-/* BASKETBALL Main */
-
-.main-basket {
-    background-image: url("https://blog.marti.mx/wp-content/uploads/2024/02/nba_historia_header-jpg.webp");
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed;
-    padding: 40px 20px; 
-    color: white; 
-    min-height: 100vh;
+/* main */
+/* Featured Sports Section */
+#featured-sports {
+    padding: 4rem 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
+#featured-sports h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+#featured-sports h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #3498db;
+}
+
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    justify-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Grid de tarjetas genérico */
+.cards-grid,
+#teams-container,
+#players-container,
+#favorites-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Tarjetas individuales */
+.card,
+.favorite-card,
+.sport-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card:hover,
+.favorite-card:hover,
+.sport-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card h3,
+.favorite-card h3,
+.sport-card h3 {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.card p,
+.favorite-card p,
+.sport-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+/* Estilos específicos para sport-card */
+.sport-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.sport-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.sport-card:hover .sport-icon {
+    transform: scale(1.1);
+}
+
+/* Estilos específicos para favorite-card */
+.favorite-card {
+    border-left: 4px solid #3498db;
+}
+
+.remove-favorite {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.remove-favorite:hover {
+    background-color: #c0392b;
+}
+
+
+/* Desplegables */
 h2 {
     text-align: center;
     font-size: 2rem;
@@ -138,296 +300,265 @@ h2 {
     margin-bottom: 20px;
     cursor: pointer;
     position: relative;
-    padding: 10px 0;
-    transition: all 0.3s ease;
-}
-
-h2::after {
-    content: '▼';
-    font-size: 1rem;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.3s ease;
-}
-
-h2.collapsed::after {
-    content: '▶';
-}
-
-#nba-teams, #nba-players {
-    margin-bottom: 30px;
-    background-color: rgba(0, 0, 0, 0.7);
     padding: 15px;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.collapsed + #teams-nba,
-.collapsed + #players-nba {
+.collapsed + #teams-container,
+.collapsed + #players-container {
     display: none;
 }
 
-#teams-nba, #players-nba {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    padding: 20px 0;
-    animation: fadeIn 0.5s ease;
-}
-
+/* Animación de despliegue */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.card {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius: 8px;
-    padding: 15px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-.card h3 {
-    font-size: 1.3rem;
-    margin: 10px 0;
-    color: #222;
-    font-weight: 600;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: #444;
-    margin: 5px 0;
-    line-height: 1.4;
-}
-
-@media screen and (max-width: 768px) {
-    h2 {
-        font-size: 1.5rem;
-        padding: 15px;
-    }
-    
-    #teams-nba, #players-nba {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 15px;
-    }
-    
-    .card {
-        padding: 12px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #teams-nba, #players-nba {
-        grid-template-columns: 1fr;
-    }
-    
-    h2::after {
-        right: 10px;
-    }
-}
-
-
-
-/* NFL main */
-#nfl-teams, #nfl-players {
-    margin-bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para las secciones */
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#teams-nba, #players-nba {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-#teams-nfl, #players-nfl {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-.main-nfl {
-    background-image: url("https://cdn.clarosports.com/clarosports/2023/09/arranca-la-temporada-2023-de-la-nfl-reuters-medley-usa-today-sports-182733.jpg");
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed;
-    padding: 40px 0; 
-    color: white; 
-}
-
-/* FOOTBALL main */
-#epl-teams, #epl-players {
-    margin-bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#teams-epl, #players-epl {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.main-football {
-    background-image: url("https://www.marketingregistrado.com/img/noticias/amp/premier-league-presento-pelota-inspiracion-anos-2000.webp");
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed;
-    padding: 40px 0; 
-    color: white; 
-}
-
-
-
-/* INDEX main */
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-#main-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-p {
-    font-size: 20px;
-    margin-top: 15px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ----- */
-
 #secvid {
     position: relative;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
 #vid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
 
 .hero-content {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: #fff;
     background: rgba(0, 0, 0, 0.5);
-    padding: 0 20px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
-.parraf {
+.hero-content .parraf {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
+    font-weight: 300;
 }
 
-/* Featured Sports */
-#featured-sports {
-    padding: 4rem 2rem;
-    background-color: rgba(0, 0, 0, 0.6);
+
+/* pagina de favoritos */
+.main-favorites {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 70vh;
 }
 
-.sports-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.sport-card {
-    background: white;
+#favorites-section {
+    background-color: #f8f9fa;
     border-radius: 10px;
     padding: 2rem;
-    text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    margin: 0 1rem;
 }
 
-.sport-card:hover {
-    transform: translateY(-10px);
-}
-
-.sport-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-/* 
-#stats-highlights {
-    padding: 4rem 2rem;
-    background: #2c3e50;
-    color: white;
+#favorites-section h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    display: block;
+    width: 100%;
+    background-color: #f8f9fa;
 }
 
-.stats-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+/* imagenes de fondo de las paginas */
+.main-basket {
+    background-image: url("https://blog.marti.mx/wp-content/uploads/2024/02/nba_historia_header-jpg.webp");
 }
 
-.stat-card {
-    padding: 1.5rem;
-    min-width: 150px;
+.main-nfl {
+    background-image: url("https://cdn.clarosports.com/clarosports/2023/09/arranca-la-temporada-2023-de-la-nfl-reuters-medley-usa-today-sports-182733.jpg");
 }
 
-.stat-value {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.main-football {
+    background-image: url("https://www.marketingregistrado.com/img/noticias/amp/premier-league-presento-pelota-inspiracion-anos-2000.webp");
 }
 
-.stat-label {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
- */
 
+
+/* responsive */
+
+@media (min-width: 1200px) {
+    .sports-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+        padding: 15px 0;
+    }
+    
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .nav-left {
+        justify-content: flex-start;
+        width: auto;
+    }
+    
+    .nav-right {
+        justify-content: flex-end;
+        width: auto;
+    }
+    
+    nav ul li a {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+    }
+    
+    #favorites-section {
+        margin: 0;
+    }
+    
+    #favorites-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 992px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #featured-sports {
+        padding: 3rem 1rem;
+    }
+    
+    #featured-sports h2 {
+        font-size: 2rem;
+    }
+    
+    .cards-grid,
+    #teams-container,
+    #players-container,
+    #favorites-container,
+    .sports-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    
+    .card,
+    .favorite-card,
+    .sport-card {
+        padding: 1.2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content .parraf {
+        font-size: 1.2rem;
+    }
+    
+    .main-favorites {
+        padding: 1rem;
+    }
+    
+    #favorites-section {
+        padding: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #featured-sports {
+        padding: 2rem 1rem;
+    }
+    
+    #featured-sports h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cards-grid,
+    #teams-container,
+    #players-container,
+    #favorites-container,
+    .sports-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .hero-content {
+        padding: 15px 25px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content .parraf {
+        font-size: 1rem;
+    }
+    
+    #favorites-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .favorite-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .sports-grid {
+        max-width: 250px;
+    }
+}
